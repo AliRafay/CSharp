@@ -11,11 +11,19 @@ namespace Basic_Login_System
         {
             protected string userName, password, name, DOB, cnic;
             protected bool isLoggedIn = false;
+            public static List<string> UserNameList = new List<string>();  //to make better signup process, avoiding having two same userNames
             public static List<string[]> UserList = new List<string[]>();
 
-            //public static List<string> userNameList = new List<string>();
-            //public static List<string> passwordList = new List<string>();
-
+            public static void Initiate()
+            {
+                Console.WriteLine("*********************************************\n" +
+                                  "\t    SIMPLE LOGIN SYSTEM!!\n" +
+                                  "*********************************************");
+            }
+            public Accounts()
+            {
+                getData();
+            }
             public static void getData()
             {
                 List<string> Credentials = new List<string>();
@@ -30,21 +38,9 @@ namespace Basic_Login_System
                 }
 
 
-                //int i = 0;
-                //while (i < Credentials.Count)
-                //{
-                //    if (i % 2 == 0 || i == 0)
-                //    {
-                //        userNameList.Add(Credentials[i]);
-                //    }
-                //    else
-                //    {
-                //        passwordList.Add(Credentials[i]);
-                //    }
-                //    i++;
-                //}
 
-                for (int i = 0; i < Credentials.Count; i += 5)
+
+                for (int i = 0; i < Credentials.Count; i += 6) // 6 because we have a line breaker 
                 {
                     string[] Arr =
                     {
@@ -55,6 +51,9 @@ namespace Basic_Login_System
                         Credentials[i+4],
 
                     };
+
+                    UserNameList.Add(Credentials[i]);   //to create a list of all usernames
+
                     UserList.Add(Arr);
                     Arr = null;
 
@@ -63,100 +62,78 @@ namespace Basic_Login_System
             }
             public void Login()
             {
-                getData();
                 while (true)
                 {
                     Console.WriteLine("Enter Username(Case sensitive): ");
                     userName = Console.ReadLine();
+                    bool userExist = false;
                     foreach (string[] array in UserList)
                     {
-                        if (userName == array[0])
+                        if (userExist == false)
                         {
-                            Console.WriteLine("This User Exists!");
-                            while (true)
+                            if (userName == array[0])
                             {
-                                Console.WriteLine("Enter Password: ");
-                                password = Console.ReadLine();
-                                if (password == array[1])
+                                userExist = true;
+                                Console.WriteLine("This User Exists!");
+                                while (true)
                                 {
-                                    isLoggedIn = true;
-                                    Console.WriteLine("You have Successfully Logged in!");
-                                    userDisplay();
-                                    break;
-                                }
+                                    Console.WriteLine("Enter Password: ");
+                                    password = Console.ReadLine();
+                                    if (password == array[1])
+                                    {
+                                        isLoggedIn = true;
+                                        Console.WriteLine("You have Successfully Logged in!");
+
+                                        userName = array[0];
+                                        password = array[1];
+                                        name = array[2];           // Creates an instance of account when login
+                                        DOB = array[3];
+                                        cnic = array[4];
 
 
-                                else
-                                {
-                                    Console.WriteLine("You have Entered the wrong Password!\n" +
-                                                      "Press 1 to try again\n" +
-                                                      "Press 2 to exit");
-                                    string choice = Console.ReadLine();
-                                    if (choice == "1")
-                                    {
-                                        continue;
-                                    }
-                                    else if (choice == "2")
-                                    {
+                                        userDisplay();
                                         break;
                                     }
+
+
+                                    else
+                                    {
+                                        Console.WriteLine("You have Entered the wrong Password!\n" +
+                                                          "Press 1 to try again\n" +
+                                                          "Press 2 to exit");
+                                        string choice = Console.ReadLine();
+                                        if (choice == "1")
+                                        {
+                                            continue;
+                                        }
+                                        else if (choice == "2")
+                                        {
+                                            break;
+                                        }
+                                    }
                                 }
+
                             }
-                            //if (userNameList.Contains(userName))
-                            //{
-                            //    int userIndex = userNameList.IndexOf(userName);
-                            //    Console.WriteLine("This User Exists!");
-                            //    while (true)
-                            //    {
-                            //        Console.WriteLine("Enter Password: ");
-                            //        password = Console.ReadLine();
-                            //        if (password == passwordList[userIndex])
-                            //        {
-                            //            isLoggedIn = true;
-                            //            Console.WriteLine("You have Successfully Logged in!");
-                            //            userDisplay();
-                            //            break;
-                            //        }
-                            //        else
-                            //        {
-                            //            Console.WriteLine("You have Entered the wrong Password!\n" +
-                            //                              "Press 1 to try again\n" +
-                            //                              "Press 2 to exit");
-                            //            string choice = Console.ReadLine();
-                            //            if (choice == "1")
-                            //            {
-                            //                continue;
-                            //            }
-                            //            else if (choice == "2")
-                            //            {
-                            //                break;
-                            //            }
 
-
-                            //        }
-                            //    }
-                            //    break;
-                            //}
-
-                            //else
-                            //{
-                            //    Console.WriteLine("User doesn't not exist\n" +
-                            //                      "Press 1 to try again\n" +
-                            //                      "Press 2 to Signup");
-                            //    string choice = Console.ReadLine();
-                            //    if (choice == "1")
-                            //    {
-                            //        continue;
-                            //    }
-                            //    else if (choice == "2")
-                            //    {
-                            //        signUp();
-                            //        break;
-                            //    }
-                            //}
                         }
+                        else
+                        {
+                            Console.WriteLine("User doesn't not exist\n" +
+                                              "Press 1 to try again\n" +
+                                              "Press 2 to Signup");
+                            string choice = Console.ReadLine();
+                            if (choice == "1")
+                            {
+                                continue;
+                            }
+                            else if (choice == "2")
+                            {
+                                signUp();
+                                break;
+                            }
+                        }
+
                     }
-                    break;    //continue from here
                 }
             }
             public void viewDetails()
@@ -170,21 +147,21 @@ namespace Basic_Login_System
             }
             public void signUp()
             {
-                //while (true)
-                //{
+                while (true)
+                {
                     Console.WriteLine("Enter your Username: ");
                     userName = Console.ReadLine();
-                //    if (userNameList.Contains(userName))
-                //    {
-                //        Console.WriteLine("Username already taken!\n" +
-                //                          "Try again...");
-                //        continue;
-                //    }
-                //    else
-                //    {
-                //        break;
-                //    }
-                //}
+                    if (UserNameList.Contains(userName))
+                    {
+                        Console.WriteLine("Username already taken!\n" +
+                                          "Try again...");
+                        continue;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
                 Console.WriteLine("Enter your Name: ");
                 name = Console.ReadLine();
                 Console.WriteLine("Enter your DOB: ");
@@ -196,7 +173,7 @@ namespace Basic_Login_System
 
 
 
-                string[] pushData = { userName, password, name, DOB, cnic };
+                string[] pushData = { userName, password, name, DOB, cnic, "------------------------------" };
                 File.AppendAllLines(@"C:\Users\Koderlabs\Desktop\C# Projects\Basic Login System\Login Credentials.txt", pushData);
 
                 isLoggedIn = true;
@@ -223,15 +200,20 @@ namespace Basic_Login_System
                 {
                     Console.WriteLine("1: Login ");
                     Console.WriteLine("2: SignUp ");
+                    Console.WriteLine("3: Exit ");
                     Console.WriteLine("Press the corresponding number to proceed: ");
                     string choice1 = Console.ReadLine();
                     if (choice1 == "1")
                     {
                         Login();
                     }
-                    if (choice1 == "2")
+                    else if (choice1 == "2")
                     {
                         signUp();
+                    }
+                    else if (choice1 == "3")
+                    {
+                        Environment.Exit(0);  // exits program successfully
                     }
                 }
                 else
@@ -244,7 +226,7 @@ namespace Basic_Login_System
                     {
                         viewDetails(); // No view Details in Admin ????
                     }
-                    if (choice2 == "2")
+                    else if (choice2 == "2")
                     {
                         logout();
                     }
@@ -257,9 +239,7 @@ namespace Basic_Login_System
 
         static void Main(string[] args)
         {
-            Console.WriteLine("*********************************************\n" +
-                              "\t    SIMPLE LOGIN SYSTEM!!\n" +
-                              "*********************************************");
+            Accounts.Initiate();
             Accounts Acc = new Accounts();
             Acc.userDisplay();
         }
