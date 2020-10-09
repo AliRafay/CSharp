@@ -10,3 +10,4 @@ C:\Users\Koderlabs\Desktop\C# Projects\Basic Login System\obj\Debug\netcoreapp3.
 C:\Users\Koderlabs\Desktop\C# Projects\Basic Login System\obj\Debug\netcoreapp3.1\Basic Login System.dll
 C:\Users\Koderlabs\Desktop\C# Projects\Basic Login System\obj\Debug\netcoreapp3.1\Basic Login System.pdb
 C:\Users\Koderlabs\Desktop\C# Projects\Basic Login System\obj\Debug\netcoreapp3.1\Basic Login System.genruntimeconfig.cache
+C:\Users\Koderlabs\Desktop\C# Projects\Basic Login System\obj\Debug\netcoreapp3.1\Basic Login System.csprojAssemblyReference.cache
