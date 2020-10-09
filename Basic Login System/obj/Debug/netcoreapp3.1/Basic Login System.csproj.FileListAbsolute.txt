@@ -4,7 +4,6 @@ C:\Users\Koderlabs\Desktop\C# Projects\Basic Login System\bin\Debug\netcoreapp3.
 C:\Users\Koderlabs\Desktop\C# Projects\Basic Login System\bin\Debug\netcoreapp3.1\Basic Login System.runtimeconfig.dev.json
 C:\Users\Koderlabs\Desktop\C# Projects\Basic Login System\bin\Debug\netcoreapp3.1\Basic Login System.dll
 C:\Users\Koderlabs\Desktop\C# Projects\Basic Login System\bin\Debug\netcoreapp3.1\Basic Login System.pdb
-C:\Users\Koderlabs\Desktop\C# Projects\Basic Login System\obj\Debug\netcoreapp3.1\Basic Login System.csprojAssemblyReference.cache
 C:\Users\Koderlabs\Desktop\C# Projects\Basic Login System\obj\Debug\netcoreapp3.1\Basic Login System.AssemblyInfoInputs.cache
 C:\Users\Koderlabs\Desktop\C# Projects\Basic Login System\obj\Debug\netcoreapp3.1\Basic Login System.AssemblyInfo.cs
 C:\Users\Koderlabs\Desktop\C# Projects\Basic Login System\obj\Debug\netcoreapp3.1\Basic Login System.csproj.CoreCompileInputs.cache
