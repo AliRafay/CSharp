@@ -10,3 +10,4 @@ C:\Users\Koderlabs\Desktop\C# Projects\Linked List\obj\Debug\netcoreapp3.1\Linke
 C:\Users\Koderlabs\Desktop\C# Projects\Linked List\obj\Debug\netcoreapp3.1\Linked List.dll
 C:\Users\Koderlabs\Desktop\C# Projects\Linked List\obj\Debug\netcoreapp3.1\Linked List.pdb
 C:\Users\Koderlabs\Desktop\C# Projects\Linked List\obj\Debug\netcoreapp3.1\Linked List.genruntimeconfig.cache
+C:\Users\Koderlabs\Desktop\C# Projects\Linked List\obj\Debug\netcoreapp3.1\Linked List.csprojAssemblyReference.cache

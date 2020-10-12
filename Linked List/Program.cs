@@ -41,6 +41,11 @@ namespace Linked_List
             Node myNode = new Node(5);
             //myNode.next = new Node(3);
             //myNode.next.next = new Node(9);
+
+            myNode.AddToEnd(3);
+            myNode.AddToEnd(9);
+            myNode.AddToEnd(7);
+
             myNode.Print();
         }
     }
