@@ -33,6 +33,24 @@ namespace Linked_List
                 next.AddToEnd(data);
             }
         }
+
+        public void AddSorted(int data)
+        {
+            if (next == null)
+            {
+                next = new Node(data);
+            }
+            else if(data<next.data)
+            {
+                Node temp = new Node(data);
+                temp.next = this.next;
+                this.next = temp;
+            }
+            else
+            {
+                next.AddSorted(data);
+            }
+        }
     }
 
     public class LinkedList
@@ -78,6 +96,22 @@ namespace Linked_List
 
             }
         }
+
+        public void AddSorted(int data)
+        {
+            if (headNode == null)
+            {
+                headNode = new Node(data);
+            }
+            else if (data < headNode.data )
+            {
+                AddToBeginning(data);
+            }
+            else
+            {
+                headNode.AddSorted(data);
+            }
+        }
     }
     class Program
     {
@@ -93,11 +127,17 @@ namespace Linked_List
 
 
             LinkedList myList = new LinkedList();
-            myList.AddToEnd(3);
-            myList.AddToEnd(4);                     //Third Approach
-            myList.AddToEnd(8);
+            //myList.AddToEnd(3);
+            //myList.AddToEnd(4);                     //Third Approach
+            //myList.AddToEnd(8);
 
-            myList.AddToBeginning(10);
+            //myList.AddToBeginning(10);
+
+            myList.AddSorted(6);
+            myList.AddSorted(4);
+            myList.AddSorted(9);
+            myList.AddSorted(2);
+
 
             myList.Print();
         }
