@@ -63,6 +63,21 @@ namespace Linked_List
                 headNode.Print();
             }
         }
+
+        public void AddToBeginning(int data)
+        {
+            if(headNode == null)
+            {
+                headNode = new Node(data);
+            }
+            else
+            {
+                Node temp = new Node(data);
+                temp.next = headNode;
+                headNode = temp;
+
+            }
+        }
     }
     class Program
     {
@@ -81,6 +96,8 @@ namespace Linked_List
             myList.AddToEnd(3);
             myList.AddToEnd(4);                     //Third Approach
             myList.AddToEnd(8);
+
+            myList.AddToBeginning(10);
 
             myList.Print();
         }
