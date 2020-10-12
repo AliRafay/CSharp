@@ -34,19 +34,55 @@ namespace Linked_List
             }
         }
     }
+
+    public class LinkedList
+    {
+        public Node headNode;
+
+        public LinkedList()
+        {
+            headNode = null;
+        }
+
+        public void AddToEnd(int data)
+        {
+            if (headNode == null)
+            {
+                headNode = new Node(data);
+            }
+            else
+            {
+                headNode.AddToEnd(data);
+            }
+        }
+
+        public void Print()
+        {
+            if (headNode != null)
+            {
+                headNode.Print();
+            }
+        }
+    }
     class Program
     {
         static void Main(string[] args)
         {
-            Node myNode = new Node(5);
-            //myNode.next = new Node(3);
+            //Node myNode = new Node(5);
+            //myNode.next = new Node(3);             First Approach
             //myNode.next.next = new Node(9);
 
-            myNode.AddToEnd(3);
-            myNode.AddToEnd(9);
-            myNode.AddToEnd(7);
+            //myNode.AddToEnd(3);
+            //myNode.AddToEnd(9);                    Second Approach
+            //myNode.AddToEnd(7);
 
-            myNode.Print();
+
+            LinkedList myList = new LinkedList();
+            myList.AddToEnd(3);
+            myList.AddToEnd(4);                     //Third Approach
+            myList.AddToEnd(8);
+
+            myList.Print();
         }
     }
 }
