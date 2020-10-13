@@ -202,7 +202,7 @@ namespace Linked_List
             //myList.Find(3);
             //myList.Find(6);
 
-            myList.AddAfter(10, 6);
+            myList.AddAfter(7, 6);
 
             myList.Print();
         }
