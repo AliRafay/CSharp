@@ -98,10 +98,24 @@ namespace Singly_Linked_List
             {
                 current = current.next;
             }
-            Console.WriteLine(current.data);
+            //Console.WriteLine(current.data);
             return current;
         }
 
+        public void AddBefore(int data, int currentData)
+        {
+            Node NodeToAdd = new Node(data);
+            if (FindPrevious(currentData) != null)
+            {
+                Node currentNode = FindPrevious(currentData);
+                NodeToAdd.next = currentNode.next;
+                currentNode.next = NodeToAdd;
+            }
+            else
+            {
+                Console.WriteLine("Couldn't Find the Node provided");
+            }
+        }
         //public void Remove(int data)
         //{
         //    Node NodeToRemove = Find(data);
@@ -202,6 +216,18 @@ namespace Singly_Linked_List
                 headNode.FindPrevious(data);
             }
         }
+
+        public void AddBefore(int data, int currentData)
+        {
+            if (headNode == null)
+            {
+                Console.WriteLine("List is Empty");
+            }
+            else
+            {
+                headNode.AddBefore(data, currentData);
+            }
+        }
     }
     class Program
     {
@@ -238,8 +264,11 @@ namespace Singly_Linked_List
             myList.AddAfter(7, 6);
 
             myList.Print();
+            Console.WriteLine("\n");
 
-            myList.FindPrevious(9);
+            myList.AddBefore(5,6);
+
+            myList.Print();
         }
     }
 }
