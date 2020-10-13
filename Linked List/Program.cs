@@ -40,7 +40,7 @@ namespace Linked_List
             {
                 next = new Node(data);
             }
-            else if(data<next.data)
+            else if (data < next.data)
             {
                 Node temp = new Node(data);
                 temp.next = this.next;
@@ -50,6 +50,25 @@ namespace Linked_List
             {
                 next.AddSorted(data);
             }
+        }
+
+        public Node Find(int data)
+        {
+            if (data == this.data)    //this.data for node's data, next.data for next node's data
+            {
+                Node temp = this.next;
+                Console.WriteLine("found!");
+                return temp;
+            }
+            else if (next == null)
+            {
+                Console.WriteLine("Not Found");
+            }
+            else
+            {
+                next.Find(data);
+            }
+            return null;
         }
     }
 
@@ -84,7 +103,7 @@ namespace Linked_List
 
         public void AddToBeginning(int data)
         {
-            if(headNode == null)
+            if (headNode == null)
             {
                 headNode = new Node(data);
             }
@@ -103,13 +122,25 @@ namespace Linked_List
             {
                 headNode = new Node(data);
             }
-            else if (data < headNode.data )
+            else if (data < headNode.data)
             {
                 AddToBeginning(data);
             }
             else
             {
                 headNode.AddSorted(data);
+            }
+        }
+
+        public void Find(int data)
+        {
+            if (headNode == null)
+            {
+                Console.WriteLine("List is Empty");
+            }
+            else
+            {
+                headNode.Find(data);
             }
         }
     }
@@ -128,7 +159,7 @@ namespace Linked_List
 
             LinkedList myList = new LinkedList();
             //myList.AddToEnd(3);
-            //myList.AddToEnd(4);                     //Third Approach
+            //myList.AddToEnd(4);                    Third Approach
             //myList.AddToEnd(8);
 
             //myList.AddToBeginning(10);
@@ -140,6 +171,9 @@ namespace Linked_List
 
 
             myList.Print();
+
+            myList.Find(3);
+            myList.Find(6);
         }
     }
 }
