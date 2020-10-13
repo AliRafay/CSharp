@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data Structures", "Data Str
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Singly Linked List", "Singly Linked List\Singly Linked List.csproj", "{B464D413-D9A7-4F5A-87DB-BECB79028857}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doubly Linked List", "Doubly Linked List\Doubly Linked List.csproj", "{CD5DE989-345A-42EA-A4CA-7C723592C634}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{B464D413-D9A7-4F5A-87DB-BECB79028857}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B464D413-D9A7-4F5A-87DB-BECB79028857}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B464D413-D9A7-4F5A-87DB-BECB79028857}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD5DE989-345A-42EA-A4CA-7C723592C634}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD5DE989-345A-42EA-A4CA-7C723592C634}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD5DE989-345A-42EA-A4CA-7C723592C634}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD5DE989-345A-42EA-A4CA-7C723592C634}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

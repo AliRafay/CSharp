@@ -7,11 +7,6 @@ namespace Singly_Linked_List
         public int data;
         public Node next;
 
-        public Node()
-        {
-            data = 0;
-            next = null;
-        }
         public Node(int i)
         {
             data = i;
@@ -48,8 +43,8 @@ namespace Singly_Linked_List
             else if (data < next.data)
             {
                 Node temp = new Node(data);
-                temp.next = this.next;
-                this.next = temp;
+                temp.next = next;
+                next = temp;
             }
             else
             {
@@ -123,19 +118,23 @@ namespace Singly_Linked_List
             Node PreviousNode = FindPrevious(data);
 
             PreviousNode.next = NodeToRemove.next;
-
+            //count--;
         }
     }
 
-    public class LinkedList
+    public class SinglyLinkedList
     {
         public Node headNode;
-
-        public LinkedList()
+        //public int count;
+        public SinglyLinkedList()
         {
             headNode = null;
         }
 
+        //public void Length()
+        //{
+        //    Console.WriteLine();
+        //}
         public void AddToEnd(int data)
         {
             if (headNode == null)
@@ -155,7 +154,6 @@ namespace Singly_Linked_List
                 headNode.Print();
             }
         }
-
         public void AddToBeginning(int data)
         {
             if (headNode == null)
@@ -170,7 +168,6 @@ namespace Singly_Linked_List
 
             }
         }
-
         public void AddSorted(int data)
         {
             if (headNode == null)
@@ -186,7 +183,6 @@ namespace Singly_Linked_List
                 headNode.AddSorted(data);
             }
         }
-
         public void Find(int data)
         {
             if (headNode == null)
@@ -209,7 +205,6 @@ namespace Singly_Linked_List
                 headNode.AddAfter(data, currentData);
             }
         }
-
         public void FindPrevious(int data)
         {
             if (headNode == null)
@@ -221,7 +216,6 @@ namespace Singly_Linked_List
                 headNode.FindPrevious(data);
             }
         }
-
         public void AddBefore(int data, int currentData)
         {
             if (headNode == null)
@@ -233,7 +227,6 @@ namespace Singly_Linked_List
                 headNode.AddBefore(data, currentData);
             }
         }
-
         public void Remove(int data)
         {
             if (headNode == null)
@@ -260,7 +253,7 @@ namespace Singly_Linked_List
             //myNode.AddToEnd(7);
 
 
-            LinkedList myList = new LinkedList();
+            SinglyLinkedList myList = new SinglyLinkedList();
             //myList.AddToEnd(3);
             //myList.AddToEnd(4);                    Third Approach
             //myList.AddToEnd(8);
@@ -286,8 +279,10 @@ namespace Singly_Linked_List
 
             //myList.AddBefore(5,6);
 
-            myList.Remove(4);
-            myList.Print();
+            //myList.Remove(4);
+            //myList.Print();
+
+            //myList.Length();
         }
     }
 }
