@@ -7,6 +7,11 @@ namespace Singly_Linked_List
         public int data;
         public Node next;
 
+        public Node()
+        {
+            data = 0;
+            next = null;
+        }
         public Node(int i)
         {
             data = i;
@@ -71,12 +76,12 @@ namespace Singly_Linked_List
             }
         }
 
-        public void AddAfter(int data, int afterData)
+        public void AddAfter(int data, int currentData)
         {
             Node NodeToAdd = new Node(data);
-            if (Find(afterData) != null)
+            if (Find(currentData) != null)
             {
-                Node currentNode = Find(afterData);
+                Node currentNode = Find(currentData);
                 NodeToAdd.next = currentNode.next;
                 currentNode.next = NodeToAdd;
             }
@@ -85,6 +90,22 @@ namespace Singly_Linked_List
                 Console.WriteLine("Couldn't Find the Node provided");
             }
         }
+
+        public Node FindPrevious(int data)
+        {
+            Node current = this;
+            while ((current.next != null) && (current.next.data != data))
+            {
+                current = current.next;
+            }
+            Console.WriteLine(current.data);
+            return current;
+        }
+
+        //public void Remove(int data)
+        //{
+        //    Node NodeToRemove = Find(data);
+        //}
     }
 
     public class LinkedList
@@ -158,7 +179,7 @@ namespace Singly_Linked_List
                 headNode.Find(data);
             }
         }
-        public void AddAfter(int data, int afterData)
+        public void AddAfter(int data, int currentData)
         {
             if (headNode == null)
             {
@@ -166,7 +187,19 @@ namespace Singly_Linked_List
             }
             else
             {
-                headNode.AddAfter(data, afterData);
+                headNode.AddAfter(data, currentData);
+            }
+        }
+
+        public void FindPrevious(int data)
+        {
+            if (headNode == null)
+            {
+                Console.WriteLine("List is Empty");
+            }
+            else
+            {
+                headNode.FindPrevious(data);
             }
         }
     }
@@ -205,6 +238,8 @@ namespace Singly_Linked_List
             myList.AddAfter(7, 6);
 
             myList.Print();
+
+            myList.FindPrevious(9);
         }
     }
 }
