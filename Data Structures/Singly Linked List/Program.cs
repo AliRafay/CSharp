@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Linked_List
+namespace Singly_Linked_List
 {
     public class Node
     {
@@ -56,7 +56,7 @@ namespace Linked_List
         {
             if (data == this.data)    //this.data for node's data, next.data for next node's data
             {
-                Node temp = this ;
+                Node temp = this;
                 //Console.WriteLine("Found");
                 return temp;
             }

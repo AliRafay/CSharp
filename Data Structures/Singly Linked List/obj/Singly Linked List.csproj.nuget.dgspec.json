@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Koderlabs\\Desktop\\C# Projects\\Linked List\\Linked List.csproj": {}
+    "C:\\Users\\Koderlabs\\Desktop\\C# Projects\\Data Structures\\Singly Linked List\\Singly Linked List.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Koderlabs\\Desktop\\C# Projects\\Linked List\\Linked List.csproj": {
+    "C:\\Users\\Koderlabs\\Desktop\\C# Projects\\Data Structures\\Singly Linked List\\Singly Linked List.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Koderlabs\\Desktop\\C# Projects\\Linked List\\Linked List.csproj",
-        "projectName": "Linked List",
-        "projectPath": "C:\\Users\\Koderlabs\\Desktop\\C# Projects\\Linked List\\Linked List.csproj",
+        "projectUniqueName": "C:\\Users\\Koderlabs\\Desktop\\C# Projects\\Data Structures\\Singly Linked List\\Singly Linked List.csproj",
+        "projectName": "Singly Linked List",
+        "projectPath": "C:\\Users\\Koderlabs\\Desktop\\C# Projects\\Data Structures\\Singly Linked List\\Singly Linked List.csproj",
         "packagesPath": "C:\\Users\\Koderlabs\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Koderlabs\\Desktop\\C# Projects\\Linked List\\obj\\",
+        "outputPath": "C:\\Users\\Koderlabs\\Desktop\\C# Projects\\Data Structures\\Singly Linked List\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Koderlabs\\AppData\\Roaming\\NuGet\\NuGet.Config",

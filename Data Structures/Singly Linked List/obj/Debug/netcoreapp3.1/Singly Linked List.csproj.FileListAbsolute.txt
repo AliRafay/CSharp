@@ -1,0 +1,13 @@
+C:\Users\Koderlabs\Desktop\C# Projects\Data Structures\Singly Linked List\bin\Debug\netcoreapp3.1\Singly Linked List.exe
+C:\Users\Koderlabs\Desktop\C# Projects\Data Structures\Singly Linked List\bin\Debug\netcoreapp3.1\Singly Linked List.deps.json
+C:\Users\Koderlabs\Desktop\C# Projects\Data Structures\Singly Linked List\bin\Debug\netcoreapp3.1\Singly Linked List.runtimeconfig.json
+C:\Users\Koderlabs\Desktop\C# Projects\Data Structures\Singly Linked List\bin\Debug\netcoreapp3.1\Singly Linked List.runtimeconfig.dev.json
+C:\Users\Koderlabs\Desktop\C# Projects\Data Structures\Singly Linked List\bin\Debug\netcoreapp3.1\Singly Linked List.dll
+C:\Users\Koderlabs\Desktop\C# Projects\Data Structures\Singly Linked List\bin\Debug\netcoreapp3.1\Singly Linked List.pdb
+C:\Users\Koderlabs\Desktop\C# Projects\Data Structures\Singly Linked List\obj\Debug\netcoreapp3.1\Singly Linked List.csprojAssemblyReference.cache
+C:\Users\Koderlabs\Desktop\C# Projects\Data Structures\Singly Linked List\obj\Debug\netcoreapp3.1\Singly Linked List.AssemblyInfoInputs.cache
+C:\Users\Koderlabs\Desktop\C# Projects\Data Structures\Singly Linked List\obj\Debug\netcoreapp3.1\Singly Linked List.AssemblyInfo.cs
+C:\Users\Koderlabs\Desktop\C# Projects\Data Structures\Singly Linked List\obj\Debug\netcoreapp3.1\Singly Linked List.csproj.CoreCompileInputs.cache
+C:\Users\Koderlabs\Desktop\C# Projects\Data Structures\Singly Linked List\obj\Debug\netcoreapp3.1\Singly Linked List.dll
+C:\Users\Koderlabs\Desktop\C# Projects\Data Structures\Singly Linked List\obj\Debug\netcoreapp3.1\Singly Linked List.pdb
+C:\Users\Koderlabs\Desktop\C# Projects\Data Structures\Singly Linked List\obj\Debug\netcoreapp3.1\Singly Linked List.genruntimeconfig.cache

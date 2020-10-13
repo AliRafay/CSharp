@@ -6,15 +6,15 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "Data Structures/1.0.0": {
+      "Singly Linked List/1.0.0": {
         "runtime": {
-          "Data Structures.dll": {}
+          "Singly Linked List.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "Data Structures/1.0.0": {
+    "Singly Linked List/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
