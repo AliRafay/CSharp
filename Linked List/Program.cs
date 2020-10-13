@@ -56,19 +56,34 @@ namespace Linked_List
         {
             if (data == this.data)    //this.data for node's data, next.data for next node's data
             {
-                Node temp = this.next;
-                Console.WriteLine("found!");
+                Node temp = this ;
+                //Console.WriteLine("Found");
                 return temp;
             }
             else if (next == null)
             {
-                Console.WriteLine("Not Found");
+                //Console.WriteLine("Not Found");
+                return null;
             }
             else
             {
-                next.Find(data);
+                return next.Find(data);
             }
-            return null;
+        }
+
+        public void AddAfter(int data, int afterData)
+        {
+            Node NodeToAdd = new Node(data);
+            if (Find(afterData) != null)
+            {
+                Node currentNode = Find(afterData);
+                NodeToAdd.next = currentNode.next;
+                currentNode.next = NodeToAdd;
+            }
+            else
+            {
+                Console.WriteLine("Couldn't Find the Node provided");
+            }
         }
     }
 
@@ -143,6 +158,17 @@ namespace Linked_List
                 headNode.Find(data);
             }
         }
+        public void AddAfter(int data, int afterData)
+        {
+            if (headNode == null)
+            {
+                Console.WriteLine("List is Empty");
+            }
+            else
+            {
+                headNode.AddAfter(data, afterData);
+            }
+        }
     }
     class Program
     {
@@ -171,9 +197,14 @@ namespace Linked_List
 
 
             myList.Print();
+            Console.WriteLine("\n");
 
-            myList.Find(3);
-            myList.Find(6);
+            //myList.Find(3);
+            //myList.Find(6);
+
+            myList.AddAfter(10, 6);
+
+            myList.Print();
         }
     }
 }
