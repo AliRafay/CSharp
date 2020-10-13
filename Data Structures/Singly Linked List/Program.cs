@@ -116,10 +116,15 @@ namespace Singly_Linked_List
                 Console.WriteLine("Couldn't Find the Node provided");
             }
         }
-        //public void Remove(int data)
-        //{
-        //    Node NodeToRemove = Find(data);
-        //}
+
+        public void Remove(int data)
+        {
+            Node NodeToRemove = Find(data);
+            Node PreviousNode = FindPrevious(data);
+
+            PreviousNode.next = NodeToRemove.next;
+
+        }
     }
 
     public class LinkedList
@@ -228,6 +233,19 @@ namespace Singly_Linked_List
                 headNode.AddBefore(data, currentData);
             }
         }
+
+        public void Remove(int data)
+        {
+            if (headNode == null)
+            {
+                Console.WriteLine("List is already Empty");
+            }
+            else
+            {
+                headNode.Remove(data);
+            }
+        }
+
     }
     class Program
     {
@@ -258,16 +276,17 @@ namespace Singly_Linked_List
             myList.Print();
             Console.WriteLine("\n");
 
-            //myList.Find(3);
-            //myList.Find(6);
+            ////myList.Find(3);
+            ////myList.Find(6);
 
-            myList.AddAfter(7, 6);
+            //myList.AddAfter(7, 6);
 
-            myList.Print();
-            Console.WriteLine("\n");
+            //myList.Print();
+            //Console.WriteLine("\n");
 
-            myList.AddBefore(5,6);
+            //myList.AddBefore(5,6);
 
+            myList.Remove(4);
             myList.Print();
         }
     }
