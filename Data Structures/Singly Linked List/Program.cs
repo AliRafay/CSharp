@@ -131,10 +131,10 @@ namespace Singly_Linked_List
             headNode = null;
         }
 
-        //public void Length()
-        //{
-        //    Console.WriteLine();
-        //}
+        public void Length()
+        {
+            Console.WriteLine();
+        }
         public void AddToEnd(int data)
         {
             if (headNode == null)
