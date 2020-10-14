@@ -6,6 +6,7 @@ namespace Singly_Linked_List
     {
         public int data;
         public Node next;
+        public int count = 1;
 
         public Node(int i)
         {
@@ -22,6 +23,15 @@ namespace Singly_Linked_List
             }
         }
 
+        public void Length()
+        {
+            while (next != null)
+            {
+                count++;
+                next = next.next;
+            }
+            Console.WriteLine("The Length of List is {0}", count);
+        }
         public void AddToEnd(int data)
         {
             if (next == null)
@@ -130,11 +140,6 @@ namespace Singly_Linked_List
         {
             headNode = null;
         }
-
-        public void Length()
-        {
-            Console.WriteLine();
-        }
         public void AddToEnd(int data)
         {
             if (headNode == null)
@@ -147,6 +152,17 @@ namespace Singly_Linked_List
             }
         }
 
+        public void Length()
+        {
+            if (headNode == null)
+            {
+                Console.WriteLine("Length of LinkedList is 0");
+            }
+            else
+            {
+                headNode.Length();
+            }
+        }
         public void Print()
         {
             if (headNode != null)
@@ -282,7 +298,7 @@ namespace Singly_Linked_List
             //myList.Remove(4);
             //myList.Print();
 
-            //myList.Length();
+            myList.Length();
         }
     }
 }
