@@ -39,6 +39,25 @@ namespace Doubly_Linked_List
 
         }
 
+        public Node Find(int data)
+        {
+            if (data == this.data)    //this.data for node's data, next.data for next node's data
+            {
+                Node temp = this;
+                //Console.WriteLine("Found"+temp.data);
+                return temp;
+            }
+            else if (next == null)
+            {
+                //Console.WriteLine("Not Found");
+                return null;
+            }
+            else
+            {
+                return next.Find(data);
+            }
+        }
+
     }
     public class DoublyLinkedList
     {
@@ -79,6 +98,18 @@ namespace Doubly_Linked_List
             }
         }
 
+        public void Find(int data)
+        {
+            if (headNode == null)
+            {
+                Console.WriteLine("List is Empty");
+            }
+            else
+            {
+                headNode.Find(data);
+            }
+        }
+
 
     }
 
@@ -96,6 +127,8 @@ namespace Doubly_Linked_List
 
             myList.Print();
 
+            myList.Find(17);
+            myList.Find(10);
         }
     }
 
