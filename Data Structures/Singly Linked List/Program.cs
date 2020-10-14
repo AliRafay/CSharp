@@ -6,7 +6,6 @@ namespace Singly_Linked_List
     {
         public int data;
         public Node next;
-        public int count = 1;
 
         public Node(int i)
         {
@@ -21,16 +20,6 @@ namespace Singly_Linked_List
             {
                 next.Print();
             }
-        }
-
-        public void Length()
-        {
-            while (next != null)
-            {
-                count++;
-                next = next.next;
-            }
-            Console.WriteLine("The Length of List is {0}", count);
         }
         public void AddToEnd(int data)
         {
@@ -67,12 +56,12 @@ namespace Singly_Linked_List
             if (data == this.data)    //this.data for node's data, next.data for next node's data
             {
                 Node temp = this;
-                //Console.WriteLine("Found");
+                Console.WriteLine("Found");
                 return temp;
             }
             else if (next == null)
             {
-                //Console.WriteLine("Not Found");
+                Console.WriteLine("Not Found");
                 return null;
             }
             else
@@ -134,6 +123,7 @@ namespace Singly_Linked_List
     public class SinglyLinkedList
     {
         public Node headNode;
+        public int count;
         public SinglyLinkedList()
         {
             headNode = null;
@@ -152,14 +142,13 @@ namespace Singly_Linked_List
 
         public void Length()
         {
-            if (headNode == null)
+            Node temp = headNode;
+            while (temp != null)
             {
-                Console.WriteLine("Length of LinkedList is 0");
+                temp = temp.next;
+                count++;
             }
-            else
-            {
-                headNode.Length();
-            }
+            Console.WriteLine("The Length of List is {0}", count);
         }
         public void Print()
         {
@@ -297,6 +286,7 @@ namespace Singly_Linked_List
             //myList.Print();
 
             myList.Length();
+
         }
     }
 }
