@@ -4,10 +4,10 @@ C:\Users\Koderlabs\Desktop\C# Projects\Data Structures\Doubly Linked List\bin\De
 C:\Users\Koderlabs\Desktop\C# Projects\Data Structures\Doubly Linked List\bin\Debug\netcoreapp3.1\Doubly Linked List.runtimeconfig.dev.json
 C:\Users\Koderlabs\Desktop\C# Projects\Data Structures\Doubly Linked List\bin\Debug\netcoreapp3.1\Doubly Linked List.dll
 C:\Users\Koderlabs\Desktop\C# Projects\Data Structures\Doubly Linked List\bin\Debug\netcoreapp3.1\Doubly Linked List.pdb
-C:\Users\Koderlabs\Desktop\C# Projects\Data Structures\Doubly Linked List\obj\Debug\netcoreapp3.1\Doubly Linked List.csprojAssemblyReference.cache
 C:\Users\Koderlabs\Desktop\C# Projects\Data Structures\Doubly Linked List\obj\Debug\netcoreapp3.1\Doubly Linked List.AssemblyInfoInputs.cache
 C:\Users\Koderlabs\Desktop\C# Projects\Data Structures\Doubly Linked List\obj\Debug\netcoreapp3.1\Doubly Linked List.AssemblyInfo.cs
 C:\Users\Koderlabs\Desktop\C# Projects\Data Structures\Doubly Linked List\obj\Debug\netcoreapp3.1\Doubly Linked List.csproj.CoreCompileInputs.cache
 C:\Users\Koderlabs\Desktop\C# Projects\Data Structures\Doubly Linked List\obj\Debug\netcoreapp3.1\Doubly Linked List.dll
 C:\Users\Koderlabs\Desktop\C# Projects\Data Structures\Doubly Linked List\obj\Debug\netcoreapp3.1\Doubly Linked List.pdb
 C:\Users\Koderlabs\Desktop\C# Projects\Data Structures\Doubly Linked List\obj\Debug\netcoreapp3.1\Doubly Linked List.genruntimeconfig.cache
+C:\Users\Koderlabs\Desktop\C# Projects\Data Structures\Doubly Linked List\obj\Debug\netcoreapp3.1\Doubly Linked List.csprojAssemblyReference.cache

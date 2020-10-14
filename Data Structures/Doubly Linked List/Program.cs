@@ -7,7 +7,6 @@ namespace Doubly_Linked_List
         public int data;
         public Node next;
         public Node previous;
-        public int count = 1;
 
 
         public Node(int i)
@@ -24,15 +23,6 @@ namespace Doubly_Linked_List
             {
                 next.Print();
             }
-        }
-        public void Length()
-        {
-            while (next != null)
-            {
-                count++;
-                next = next.next;
-            }
-            Console.WriteLine("The Length of DoublyLinkedList is {0}", count);
         }
         public void AddToEnd(int data)
         {
@@ -55,7 +45,7 @@ namespace Doubly_Linked_List
             if (data == this.data)    //this.data for node's data, next.data for next node's data
             {
                 Node temp = this;
-                //Console.WriteLine("Found"+temp.data);
+                //Console.WriteLine("Found");
                 return temp;
             }
             else if (next == null)
@@ -113,11 +103,18 @@ namespace Doubly_Linked_List
                 Console.WriteLine("Couldn't Find the Node provided");
             }
         }
+        public void Remove(int data)
+        {
+            Node NodeToRemove = Find(data);
+            Node PreviousNode = FindPrevious(data);
 
+            PreviousNode.next = NodeToRemove.next;
+        }
     }
     public class DoublyLinkedList
     {
         public Node headNode;
+        public int count;
         public DoublyLinkedList()
         {
             headNode = null;
@@ -131,14 +128,13 @@ namespace Doubly_Linked_List
         }
         public void Length()
         {
-            if (headNode == null)
+            Node temp = headNode;
+            while (temp != null)
             {
-                Console.WriteLine("Length of DoublyLinkedList is 0");
+                temp = temp.next;
+                count++;
             }
-            else
-            {
-                headNode.Length();
-            }
+            Console.WriteLine("The Length of List is {0}", count);
         }
         public void AddToEnd(int data)
         {
@@ -208,6 +204,17 @@ namespace Doubly_Linked_List
                 headNode.AddBefore(data, currentData);
             }
         }
+        public void Remove(int data)
+        {
+            if (headNode == null)
+            {
+                Console.WriteLine("List is already Empty");
+            }
+            else
+            {
+                headNode.Remove(data);
+            }
+        }
 
     }
 
@@ -234,6 +241,8 @@ namespace Doubly_Linked_List
             //myList.AddBefore(13, 17);
             //myList.Print();
             myList.Length();
+            myList.Remove(17);
+            myList.Print();
 
 
         }
