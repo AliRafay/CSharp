@@ -7,15 +7,12 @@ namespace Doubly_Linked_List
         public int data;
         public Node next;
         public Node previous;
-
-
         public Node(int i)
         {
             data = i;
             next = null;
             previous = null;
         }
-
         public void Print()
         {
             Console.Write("|" + data + "|-->");
@@ -109,6 +106,7 @@ namespace Doubly_Linked_List
             Node PreviousNode = FindPrevious(data);
 
             PreviousNode.next = NodeToRemove.next;
+            NodeToRemove.next.previous = NodeToRemove.previous ;
         }
     }
     public class DoublyLinkedList
@@ -238,11 +236,11 @@ namespace Doubly_Linked_List
             //myList.Find(10);
 
             //myList.AddAfter(39, 17);
-            //myList.AddBefore(13, 17);
             //myList.Print();
-            myList.Length();
-            myList.Remove(17);
-            myList.Print();
+            //myList.Length();
+            //myList.Remove(17);
+            //myList.AddBefore(13, 40);
+            //myList.Print();
 
 
         }
