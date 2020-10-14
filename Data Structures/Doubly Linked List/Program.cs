@@ -7,6 +7,8 @@ namespace Doubly_Linked_List
         public int data;
         public Node next;
         public Node previous;
+        public int count = 1;
+
 
         public Node(int i)
         {
@@ -22,6 +24,15 @@ namespace Doubly_Linked_List
             {
                 next.Print();
             }
+        }
+        public void Length()
+        {
+            while (next != null)
+            {
+                count++;
+                next = next.next;
+            }
+            Console.WriteLine("The Length of DoublyLinkedList is {0}", count);
         }
         public void AddToEnd(int data)
         {
@@ -118,6 +129,17 @@ namespace Doubly_Linked_List
                 headNode.Print();
             }
         }
+        public void Length()
+        {
+            if (headNode == null)
+            {
+                Console.WriteLine("Length of DoublyLinkedList is 0");
+            }
+            else
+            {
+                headNode.Length();
+            }
+        }
         public void AddToEnd(int data)
         {
             if (headNode == null)
@@ -211,7 +233,7 @@ namespace Doubly_Linked_List
             //myList.AddAfter(39, 17);
             //myList.AddBefore(13, 17);
             //myList.Print();
-
+            myList.Length();
 
 
         }

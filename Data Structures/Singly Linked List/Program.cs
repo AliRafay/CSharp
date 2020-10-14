@@ -135,7 +135,6 @@ namespace Singly_Linked_List
     public class SinglyLinkedList
     {
         public Node headNode;
-        //public int count;
         public SinglyLinkedList()
         {
             headNode = null;
