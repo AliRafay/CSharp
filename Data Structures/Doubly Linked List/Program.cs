@@ -39,65 +39,64 @@ namespace Doubly_Linked_List
 
         }
 
-        public class DoublyLinkedList
+    }
+    public class DoublyLinkedList
+    {
+        public Node headNode;
+        public DoublyLinkedList()
         {
-            public Node headNode;
-
-            public DoublyLinkedList()
+            headNode = null;
+        }
+        public void Print()
+        {
+            if (headNode != null)
             {
-                headNode = null;
+                headNode.Print();
             }
-            public void Print()
+        }
+        public void AddToEnd(int data)
+        {
+            if (headNode == null)
             {
-                if (headNode != null)
-                {
-                    headNode.Print();
-                }
+                headNode = new Node(data);
             }
-            public void AddToEnd(int data)
+            else
             {
-                if (headNode == null)
-                {
-                    headNode = new Node(data);
-                }
-                else
-                {
-                    headNode.AddToEnd(data);
-                }
+                headNode.AddToEnd(data);
             }
-
-            public void AddToBeginning(int data)
+        }
+        public void AddToBeginning(int data)
+        {
+            if (headNode == null)
             {
-                if (headNode == null)
-                {
-                    headNode = new Node(data);
-                }
-                else
-                {
-                    Node temp = new Node(data);
-                    temp.next = headNode;
-                    headNode = temp;
-                }
+                headNode = new Node(data);
             }
-
-
+            else
+            {
+                Node temp = new Node(data);
+                temp.next = headNode;
+                headNode = temp;
+            }
         }
 
-        class Program
+
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
         {
-            static void Main(string[] args)
-            {
-                DoublyLinkedList myList = new DoublyLinkedList();
+            DoublyLinkedList myList = new DoublyLinkedList();
 
-                myList.AddToEnd(9);
-                myList.AddToEnd(17);
-                myList.AddToEnd(40);
+            myList.AddToEnd(9);
+            myList.AddToEnd(17);
+            myList.AddToEnd(40);
 
-                myList.AddToBeginning(7);
+            myList.AddToBeginning(7);
 
-                myList.Print();
+            myList.Print();
 
-            }
         }
     }
+
 }
