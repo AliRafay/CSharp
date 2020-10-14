@@ -23,14 +23,15 @@ namespace Doubly_Linked_List
                 next.Print();
             }
         }
-
         public void AddToEnd(int data)
         {
             if (next == null)
             {
                 next = new Node(data);
+                //Console.WriteLine(next.data);
                 next.previous = this;
-
+                //Console.WriteLine(next.previous.data);
+                
             }
             else
             {
@@ -38,7 +39,6 @@ namespace Doubly_Linked_List
             }
 
         }
-
         public Node Find(int data)
         {
             if (data == this.data)    //this.data for node's data, next.data for next node's data
@@ -55,6 +55,23 @@ namespace Doubly_Linked_List
             else
             {
                 return next.Find(data);
+            }
+        }
+        public Node FindPrevious(int data)
+        {
+            if (data == this.data && previous != null)    //this.data for node's data, next.data for next node's data
+            {
+                Console.WriteLine("Found" + previous.data);
+                return previous;
+            }
+            
+            else if (next != null)
+            {
+                return next.FindPrevious(data);
+            }
+            else
+            {
+                return null;
             }
         }
         public void AddAfter(int data, int currentData)
@@ -121,6 +138,17 @@ namespace Doubly_Linked_List
                 headNode.Find(data);
             }
         }
+        public void FindPrevious(int data)
+        {
+            if (headNode == null)
+            {
+                Console.WriteLine("List is Empty");
+            }
+            else
+            {
+                headNode.FindPrevious(data);
+            }
+        }
         public void AddAfter(int data, int currentData)
         {
             if (headNode == null)
@@ -145,8 +173,9 @@ namespace Doubly_Linked_List
             myList.AddToEnd(9);
             myList.AddToEnd(17);
             myList.AddToEnd(40);
+            myList.AddToEnd(7);
 
-            myList.AddToBeginning(7);
+            //myList.AddToBeginning(7);
 
             myList.Print();
             Console.WriteLine("\n");
@@ -154,8 +183,9 @@ namespace Doubly_Linked_List
             //myList.Find(17);
             //myList.Find(10);
 
-            myList.AddAfter(39, 17);
-            myList.Print();
+            //myList.AddAfter(39, 17);
+            myList.FindPrevious(9);
+
 
         }
 
