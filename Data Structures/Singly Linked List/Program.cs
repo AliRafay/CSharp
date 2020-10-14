@@ -128,7 +128,6 @@ namespace Singly_Linked_List
             Node PreviousNode = FindPrevious(data);
 
             PreviousNode.next = NodeToRemove.next;
-            //count--;
         }
     }
 
