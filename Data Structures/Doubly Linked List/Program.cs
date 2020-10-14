@@ -61,7 +61,7 @@ namespace Doubly_Linked_List
         {
             if (data == this.data && previous != null)    //this.data for node's data, next.data for next node's data
             {
-                Console.WriteLine("Found" + previous.data);
+                //Console.WriteLine("Found" + previous.data);
                 return previous;
             }
             
@@ -88,6 +88,21 @@ namespace Doubly_Linked_List
                 Console.WriteLine("Couldn't Find the Node provided");
             }
         }
+        public void AddBefore(int data, int currentData)
+        {
+            Node NodeToAdd = new Node(data);
+            if (FindPrevious(currentData) != null)
+            {
+                Node currentNode = FindPrevious(currentData);
+                NodeToAdd.next = currentNode.next;
+                currentNode.next = NodeToAdd;
+            }
+            else
+            {
+                Console.WriteLine("Couldn't Find the Node provided");
+            }
+        }
+
     }
     public class DoublyLinkedList
     {
@@ -160,7 +175,17 @@ namespace Doubly_Linked_List
                 headNode.AddAfter(data, currentData);
             }
         }
-
+        public void AddBefore(int data, int currentData)
+        {
+            if (headNode == null)
+            {
+                Console.WriteLine("List is Empty");
+            }
+            else
+            {
+                headNode.AddBefore(data, currentData);
+            }
+        }
 
     }
 
@@ -184,7 +209,9 @@ namespace Doubly_Linked_List
             //myList.Find(10);
 
             //myList.AddAfter(39, 17);
-            myList.FindPrevious(9);
+            //myList.AddBefore(13, 17);
+            //myList.Print();
+
 
 
         }
