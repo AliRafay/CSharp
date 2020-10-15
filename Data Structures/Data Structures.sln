@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Singly Linked List", "Singl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doubly Linked List", "Doubly Linked List\Doubly Linked List.csproj", "{CD5DE989-345A-42EA-A4CA-7C723592C634}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stacks", "Stacks\Stacks.csproj", "{E41F9C80-0E29-4051-826F-15A024038AC1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stacks", "Stacks\Stacks.csproj", "{E41F9C80-0E29-4051-826F-15A024038AC1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Queues", "Queues\Queues.csproj", "{2B507493-504A-472E-9341-24BFFA19A992}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{E41F9C80-0E29-4051-826F-15A024038AC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E41F9C80-0E29-4051-826F-15A024038AC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E41F9C80-0E29-4051-826F-15A024038AC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B507493-504A-472E-9341-24BFFA19A992}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B507493-504A-472E-9341-24BFFA19A992}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B507493-504A-472E-9341-24BFFA19A992}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B507493-504A-472E-9341-24BFFA19A992}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
