@@ -5,7 +5,7 @@ namespace Queues
 {
     public class Queue
     {
-        private List<int> pqueue = new List<int>();
+        private List<int> queue = new List<int>();
         public void EnQueue(int item)
         {
             pqueue.Add(item);
