@@ -208,6 +208,10 @@ namespace Doubly_Linked_List
             {
                 Console.WriteLine("List is already Empty");
             }
+            else if (data == headNode.data)
+            {
+                headNode = headNode.next;
+            }
             else
             {
                 headNode.Remove(data);
@@ -238,8 +242,8 @@ namespace Doubly_Linked_List
             //myList.AddAfter(39, 17);
             //myList.Print();
             //myList.Length();
-            //myList.Remove(17);
-            //myList.AddBefore(13, 40);
+            //myList.Remove(9);
+            ////myList.AddBefore(13, 40);
             //myList.Print();
 
 
