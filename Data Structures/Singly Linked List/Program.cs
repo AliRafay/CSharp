@@ -6,13 +6,11 @@ namespace Singly_Linked_List
     {
         public int data;
         public Node next;
-
         public Node(int i)
         {
             data = i;
             next = null;
         }
-
         public void Print()
         {
             Console.Write("|" + data + "|-->");
@@ -32,7 +30,6 @@ namespace Singly_Linked_List
                 next.AddToEnd(data);
             }
         }
-
         public void AddSorted(int data)
         {
             if (next == null)
@@ -50,7 +47,6 @@ namespace Singly_Linked_List
                 next.AddSorted(data);
             }
         }
-
         public Node Find(int data)
         {
             if (data == this.data)    //this.data for node's data, next.data for next node's data
@@ -69,7 +65,6 @@ namespace Singly_Linked_List
                 return next.Find(data);
             }
         }
-
         public void AddAfter(int data, int currentData)
         {
             Node NodeToAdd = new Node(data);
@@ -84,7 +79,6 @@ namespace Singly_Linked_List
                 Console.WriteLine("Couldn't Find the Node provided");
             }
         }
-
         public Node FindPrevious(int data)
         {
             Node current = this;
@@ -95,7 +89,6 @@ namespace Singly_Linked_List
             //Console.WriteLine(current.data);
             return current;
         }
-
         public void AddBefore(int data, int currentData)
         {
             Node NodeToAdd = new Node(data);
@@ -110,7 +103,6 @@ namespace Singly_Linked_List
                 Console.WriteLine("Couldn't Find the Node provided");
             }
         }
-
         public void Remove(int data)
         {
             Node NodeToRemove = Find(data);
@@ -139,7 +131,6 @@ namespace Singly_Linked_List
                 headNode.AddToEnd(data);
             }
         }
-
         public void Length()
         {
             Node temp = headNode;
