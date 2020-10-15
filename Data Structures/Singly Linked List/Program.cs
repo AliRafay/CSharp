@@ -227,6 +227,10 @@ namespace Singly_Linked_List
             {
                 Console.WriteLine("List is already Empty");
             }
+            else if(data == headNode.data)
+            {
+                headNode = headNode.next;
+            }
             else
             {
                 headNode.Remove(data);
@@ -276,7 +280,10 @@ namespace Singly_Linked_List
             //myList.Remove(4);
             //myList.Print();
 
-            myList.Length();
+            //myList.Length();
+
+            myList.Remove(2);
+            myList.Print();
 
         }
     }
