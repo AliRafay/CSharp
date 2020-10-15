@@ -15,7 +15,7 @@ namespace Doubly_Linked_List
         }
         public void Print()
         {
-            Console.Write("|" + data + "|-->");
+            Console.Write("|" + data + "|<-->");
             if (next != null)
             {
                 next.Print();
