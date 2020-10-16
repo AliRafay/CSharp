@@ -1,6 +1,4 @@
 ﻿using System;
-using System.ComponentModel.Design.Serialization;
-using System.Transactions;
 
 namespace Trees
 {
@@ -13,24 +11,73 @@ namespace Trees
         {
             Console.Write(data + "  ");
         }
-        public void Search(int i)
+        public Node Search(int i)
         {
             if (data == i)
             {
                 Console.WriteLine("Found");
+                return this;
             }
-            else if(i < data && left != null)
+            else if (i < data && left != null)
             {
-                left.Search(i);
+                return left.Search(i);
             }
-            else if(i > data && right != null)
+            else if (i > data && right != null)
             {
-                right.Search(i);
+                return right.Search(i);
             }
             else
             {
                 Console.WriteLine("Not Found");
+                return null;
             }
+        }
+        public void RemoveSearch(int i)
+        {
+            if (left != null)
+            {
+                if (left.data == i)   //finding child using parent as there is no reference from child to parent for deletion and we need to delete reference of child from parent
+                {
+                    Console.WriteLine("Found");
+                    //Remove(left);
+                    if(left.left==null && right.right == null) //for lead, no children
+                    {
+                        left = null;
+                    }
+                }
+                else if (i < data)
+                {
+                    //Console.WriteLine("Moving left");
+                    left.RemoveSearch(i);
+                }
+            }
+            if (right != null)
+            {
+                if (right.data == i)
+                {
+                    Console.WriteLine("Found");
+                    //Remove(right);
+                    if (left.left == null && right.right == null)
+                    {
+                        right = null;
+                    }
+
+                }
+
+                else if (i > data)
+                {
+                    //Console.WriteLine("Moving right");
+                    right.RemoveSearch(i);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Element Not Found");
+            }
+        }
+        public void Remove(Node myNode)
+        {
+
         }
         public void InOrderTreversal(Node Current)
         {
@@ -107,7 +154,7 @@ namespace Trees
         }
         public void Search(int i)
         {
-            if(root == null)
+            if (root == null)
             {
                 Console.WriteLine("Emtpy Tree");
             }
@@ -116,6 +163,18 @@ namespace Trees
                 root.Search(i);
             }
         }
+        //public void Remove(int i)
+        //{
+        //    if (root == null)
+        //    {
+        //        Console.WriteLine("Empty Tree");
+        //    }
+        //    else
+        //    {
+        //        root.Remove(i);
+        //    }
+
+        //}
         public void InOrderTreversal()
         {
             if (root == null)
@@ -168,16 +227,18 @@ namespace Trees
                 myTree.Insert(8);
                 myTree.Insert(20);
                 myTree.Insert(12);
+                myTree.Insert(11);
+                myTree.Insert(13);
 
-                //myTree.InOrderTreversal();
+                myTree.InOrderTreversal();
                 //myTree.PreOrderTreversal();
                 //myTree.PostOrderTreversal();
 
-                myTree.Search(10);
-                myTree.Search(15);
-                myTree.Search(18);
-                myTree.Search(8);
-                myTree.Search(13);
+                ////myTree.Search(10);
+                //myTree.Remove(20);
+                //myTree.root.RemoveSearch(15);
+                //myTree.InOrderTreversal();
+
             }
         }
     }
