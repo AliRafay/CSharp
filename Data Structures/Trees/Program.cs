@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel.Design.Serialization;
+using System.Transactions;
 
 namespace Trees
 {
@@ -10,6 +12,25 @@ namespace Trees
         public void DisplayNode()
         {
             Console.Write(data + "  ");
+        }
+        public void Search(int i)
+        {
+            if (data == i)
+            {
+                Console.WriteLine("Found");
+            }
+            else if(i < data && left != null)
+            {
+                left.Search(i);
+            }
+            else if(i > data && right != null)
+            {
+                right.Search(i);
+            }
+            else
+            {
+                Console.WriteLine("Not Found");
+            }
         }
         public void InOrderTreversal(Node Current)
         {
@@ -84,6 +105,17 @@ namespace Trees
 
             }
         }
+        public void Search(int i)
+        {
+            if(root == null)
+            {
+                Console.WriteLine("Emtpy Tree");
+            }
+            else
+            {
+                root.Search(i);
+            }
+        }
         public void InOrderTreversal()
         {
             if (root == null)
@@ -137,9 +169,15 @@ namespace Trees
                 myTree.Insert(20);
                 myTree.Insert(12);
 
-                myTree.InOrderTreversal();
-                myTree.PreOrderTreversal();
-                myTree.PostOrderTreversal();
+                //myTree.InOrderTreversal();
+                //myTree.PreOrderTreversal();
+                //myTree.PostOrderTreversal();
+
+                myTree.Search(10);
+                myTree.Search(15);
+                myTree.Search(18);
+                myTree.Search(8);
+                myTree.Search(13);
             }
         }
     }
