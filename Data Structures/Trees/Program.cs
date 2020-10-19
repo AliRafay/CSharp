@@ -1,119 +1,27 @@
 ﻿using System;
+using System.Collections.Generic;
 
-namespace Trees
+namespace BinarySearchTree
 {
     public class Node
     {
         public int data;
         public Node left;
         public Node right;
-        public void DisplayNode()
-        {
-            Console.Write(data + "  ");
-        }
-        public Node Search(int i)
-        {
-            if (data == i)
-            {
-                Console.WriteLine("Found");
-                return this;
-            }
-            else if (i < data && left != null)
-            {
-                return left.Search(i);
-            }
-            else if (i > data && right != null)
-            {
-                return right.Search(i);
-            }
-            else
-            {
-                Console.WriteLine("Not Found");
-                return null;
-            }
-        }
-        public void RemoveSearch(int i)
-        {
-            if (left != null)
-            {
-                if (left.data == i)   //finding child using parent as there is no reference from child to parent for deletion and we need to delete reference of child from parent
-                {
-                    Console.WriteLine("Found");
-                    //Remove(left);
-                    if(left.left==null && right.right == null) //for lead, no children
-                    {
-                        left = null;
-                    }
-                }
-                else if (i < data)
-                {
-                    //Console.WriteLine("Moving left");
-                    left.RemoveSearch(i);
-                }
-            }
-            if (right != null)
-            {
-                if (right.data == i)
-                {
-                    Console.WriteLine("Found");
-                    //Remove(right);
-                    if (left.left == null && right.right == null)
-                    {
-                        right = null;
-                    }
-
-                }
-
-                else if (i > data)
-                {
-                    //Console.WriteLine("Moving right");
-                    right.RemoveSearch(i);
-                }
-            }
-            else
-            {
-                Console.WriteLine("Element Not Found");
-            }
-        }
-        public void Remove(Node myNode)
-        {
-
-        }
-        public void InOrderTreversal(Node Current)
-        {
-            if (Current != null)
-            {
-                InOrderTreversal(Current.left);
-                Current.DisplayNode();
-                InOrderTreversal(Current.right);
-            }
-        }
-        public void PostOrderTreversal(Node Current)
-        {
-            if (Current != null)
-            {
-                PostOrderTreversal(Current.left);
-                PostOrderTreversal(Current.right);
-                Current.DisplayNode();
-            }
-        }
-        public void PreOrderTreversal(Node Current)
-        {
-            if (Current != null)
-            {
-                Current.DisplayNode();
-                PreOrderTreversal(Current.left);
-                PreOrderTreversal(Current.right);
-            }
-        }
     }
 
     public class BinarySearchTree
     {
         public Node root;
+        public List<Node> myInOrderList = new List<Node>();
+
         public BinarySearchTree()
         {
             root = null;
+        }
+        public void DisplayNode(Node myNode)
+        {
+            Console.Write(myNode.data + "  ");
         }
         public void Insert(int i)
         {
@@ -152,6 +60,29 @@ namespace Trees
 
             }
         }
+        private void SearchRecur(Node Current, int i)
+        {
+            if (Current.data == i)
+            {
+                Console.WriteLine("Found");
+                //return this;
+            }
+            else if (i < Current.data && Current.left != null)
+            {
+                //return 
+                SearchRecur(Current.left, i);
+            }
+            else if (i > Current.data && Current.right != null)
+            {
+                //return
+                SearchRecur(Current.right, i);
+            }
+            else
+            {
+                Console.WriteLine("Not Found");
+                //return null;
+            }
+        }
         public void Search(int i)
         {
             if (root == null)
@@ -160,21 +91,120 @@ namespace Trees
             }
             else
             {
-                root.Search(i);
+                SearchRecur(root, i);
+
             }
         }
-        //public void Remove(int i)
-        //{
-        //    if (root == null)
-        //    {
-        //        Console.WriteLine("Empty Tree");
-        //    }
-        //    else
-        //    {
-        //        root.Remove(i);
-        //    }
+        public Node BringInOrderSuccessor(Node Current)
+        {
+            InOrderToList(root);
+            foreach (Node myNode in myInOrderList)
+            {
+                if (myNode.data == Current.data)
+                {
+                    Console.WriteLine(myInOrderList[myInOrderList.IndexOf(myNode) + 1].data);
+                    return myInOrderList[myInOrderList.IndexOf(myNode) + 1];// successor to current
+                }
 
-        //}
+            }
+            return null;
+            //return myInOrderList[1]; // successor to current
+        }
+        public void RemoveSearch(Node Current, int i)
+        {
+            if (Current.left != null)
+            {
+                if (Current.left.data == i)   //finding child using parent as there is no reference from child to parent for deletion and we need to delete reference of child from parent
+                {
+                    //Console.WriteLine("Found");
+                    if (Current.left.left == null && Current.left.right == null) //for leaf, no children
+                    {
+                        Current.left = null;
+                    }
+                    else if ((Current.left.left == null && Current.left.right != null) || (Current.left.left != null && Current.left.right == null)) //one child null
+                    {
+                        if (Current.left.left != null && Current.left.right == null)
+                        {
+                            Current.left = Current.left.left;
+                        }
+                        else
+                        {
+                            Current.left = Current.left.right;
+                        }
+                    }
+                    else //both children present
+                    {
+                        Node successor = BringInOrderSuccessor(Current.left);
+                        Current.left.data = successor.data;
+                        RemoveSearch(Current.left, successor.data);
+                    }
+                }
+                else if (i < Current.data)
+                {
+                    //Console.WriteLine("Moving left");
+                    RemoveSearch(Current.left, i);
+                }
+            }
+            if (Current.right != null)
+            {
+                if (Current.right.data == i)
+                {
+                    //Console.WriteLine("Found");
+                    //Remove(right);
+                    if (Current.right.left == null && Current.right.right == null)
+                    {
+                        Current.right = null;
+                    }
+                    else if ((Current.right.left == null && Current.right.right != null) || (Current.right.left != null && Current.right.right == null)) //one child null
+                    {
+                        if (Current.right.left != null && Current.right.right == null)
+                        {
+                            Current.right = Current.right.left;
+                        }
+                        else
+                        {
+                            Current.right = Current.right.right;
+                        }
+                    }
+                    else //both children present
+                    {
+                        Node successor = BringInOrderSuccessor(Current.right);
+                        Current.right.data = successor.data;
+                        RemoveSearch(Current.right, successor.data);
+                    }
+                }
+
+                else if (i > Current.data)
+                {
+                    //Console.WriteLine("Moving right");
+                    RemoveSearch(Current.right, i);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Element Not Found");
+            }
+        }
+        public void Remove(int i)
+        {
+            if (root == null)
+            {
+                Console.WriteLine("empty tree");
+            }
+            else
+            {
+                RemoveSearch(root, i);
+            }
+        }
+        private void InOrderTreversalRecur(Node Current)
+        {
+            if (Current != null)
+            {
+                InOrderTreversalRecur(Current.left);
+                DisplayNode(Current);
+                InOrderTreversalRecur(Current.right);
+            }
+        }
         public void InOrderTreversal()
         {
             if (root == null)
@@ -184,8 +214,26 @@ namespace Trees
             else
             {
                 Console.WriteLine("InOrder Treversal");
-                root.InOrderTreversal(root);
+                InOrderTreversalRecur(root);
                 Console.WriteLine("\n");
+            }
+        }
+        public void InOrderToList(Node Current)
+        {
+            if (Current != null)
+            {
+                InOrderToList(Current.left);
+                myInOrderList.Add(Current);
+                InOrderToList(Current.right);
+            }
+        }
+        private void PreOrderTreversalRecur(Node Current)
+        {
+            if (Current != null)
+            {
+                DisplayNode(Current);
+                PreOrderTreversalRecur(Current.left);
+                PreOrderTreversalRecur(Current.right);
             }
         }
         public void PreOrderTreversal()
@@ -197,9 +245,18 @@ namespace Trees
             else
             {
                 Console.WriteLine("PreOrder Treversal");
-                root.PreOrderTreversal(root);
+                PreOrderTreversalRecur(root);
                 Console.WriteLine("\n");
 
+            }
+        }
+        private void PostOrderTreversalRecur(Node Current)
+        {
+            if (Current != null)
+            {
+                PostOrderTreversalRecur(Current.left);
+                PostOrderTreversalRecur(Current.right);
+                DisplayNode(Current);
             }
         }
         public void PostOrderTreversal()
@@ -211,7 +268,7 @@ namespace Trees
             else
             {
                 Console.WriteLine("PostOrder Treversal");
-                root.PostOrderTreversal(root);
+                PostOrderTreversalRecur(root);
                 Console.WriteLine("\n");
 
             }
@@ -221,23 +278,33 @@ namespace Trees
             static void Main(string[] args)
             {
                 BinarySearchTree myTree = new BinarySearchTree();
-                myTree.Insert(10);
-                myTree.Insert(15);
-                myTree.Insert(18);
-                myTree.Insert(8);
                 myTree.Insert(20);
-                myTree.Insert(12);
-                myTree.Insert(11);
-                myTree.Insert(13);
+                myTree.Insert(10);
+                myTree.Insert(35);
+                myTree.Insert(2);
+                myTree.Insert(5);
+                myTree.Insert(15);
+                myTree.Insert(25);
+                myTree.Insert(30);
+                myTree.Insert(18);
+                myTree.Insert(22);
+                myTree.Insert(32);
+
 
                 myTree.InOrderTreversal();
                 //myTree.PreOrderTreversal();
                 //myTree.PostOrderTreversal();
 
-                ////myTree.Search(10);
-                //myTree.Remove(20);
-                //myTree.root.RemoveSearch(15);
-                //myTree.InOrderTreversal();
+
+                //myTree.Search(23);
+                //myTree.Search(25);
+                //myTree.Search(10);
+                myTree.Remove(30);
+                myTree.Remove(10);
+                //myTree.Remove(15); 
+                //myTree.Remove(35);
+                myTree.InOrderTreversal();
+
 
             }
         }
