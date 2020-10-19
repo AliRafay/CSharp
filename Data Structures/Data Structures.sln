@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stacks", "Stacks\Stacks.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Queues", "Queues\Queues.csproj", "{2B507493-504A-472E-9341-24BFFA19A992}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinarySearchTree", "Trees\BinarySearchTree.csproj", "{CD0397E9-D42F-4F82-B455-EADE38DD67F8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinarySearchTree", "Trees\BinarySearchTree\BinarySearchTree.csproj", "{93CB3710-3264-432B-9381-4F4983A3A5AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +41,10 @@ Global
 		{2B507493-504A-472E-9341-24BFFA19A992}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B507493-504A-472E-9341-24BFFA19A992}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B507493-504A-472E-9341-24BFFA19A992}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CD0397E9-D42F-4F82-B455-EADE38DD67F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CD0397E9-D42F-4F82-B455-EADE38DD67F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CD0397E9-D42F-4F82-B455-EADE38DD67F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CD0397E9-D42F-4F82-B455-EADE38DD67F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93CB3710-3264-432B-9381-4F4983A3A5AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93CB3710-3264-432B-9381-4F4983A3A5AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93CB3710-3264-432B-9381-4F4983A3A5AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93CB3710-3264-432B-9381-4F4983A3A5AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

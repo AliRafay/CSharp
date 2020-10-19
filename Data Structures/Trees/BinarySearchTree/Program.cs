@@ -158,7 +158,7 @@ namespace BinarySearchTree
                         Current.right = null;
                     }
                     //one child null
-                    else if ((Current.right.left == null && Current.right.right != null) || (Current.right.left != null && Current.right.right == null)) 
+                    else if ((Current.right.left == null && Current.right.right != null) || (Current.right.left != null && Current.right.right == null))
                     {
                         if (Current.right.left != null && Current.right.right == null)
                         {
