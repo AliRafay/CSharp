@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Queues", "Queues\Queues.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinarySearchTree", "Trees\BinarySearchTree\BinarySearchTree.csproj", "{93CB3710-3264-432B-9381-4F4983A3A5AF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AVLTree", "Trees\AVLTree\AVLTree.csproj", "{62A9EB96-2B44-4BBB-82D8-C778C9FD719A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{93CB3710-3264-432B-9381-4F4983A3A5AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93CB3710-3264-432B-9381-4F4983A3A5AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93CB3710-3264-432B-9381-4F4983A3A5AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62A9EB96-2B44-4BBB-82D8-C778C9FD719A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62A9EB96-2B44-4BBB-82D8-C778C9FD719A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62A9EB96-2B44-4BBB-82D8-C778C9FD719A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62A9EB96-2B44-4BBB-82D8-C778C9FD719A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
