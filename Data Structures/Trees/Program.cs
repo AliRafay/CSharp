@@ -151,11 +151,14 @@ namespace BinarySearchTree
                 {
                     //Console.WriteLine("Found");
                     //Remove(right);
+
+                    //both child null
                     if (Current.right.left == null && Current.right.right == null)
                     {
                         Current.right = null;
                     }
-                    else if ((Current.right.left == null && Current.right.right != null) || (Current.right.left != null && Current.right.right == null)) //one child null
+                    //one child null
+                    else if ((Current.right.left == null && Current.right.right != null) || (Current.right.left != null && Current.right.right == null)) 
                     {
                         if (Current.right.left != null && Current.right.right == null)
                         {
@@ -166,7 +169,8 @@ namespace BinarySearchTree
                             Current.right = Current.right.right;
                         }
                     }
-                    else //both children present
+                    //both children present
+                    else
                     {
                         Node successor = BringInOrderSuccessor(Current.right);
                         Current.right.data = successor.data;
