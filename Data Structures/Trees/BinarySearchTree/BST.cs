@@ -289,8 +289,8 @@ namespace BinarySearchTree
                 myTree.Insert(5);
                 myTree.Insert(15);
                 myTree.Insert(25);
-                myTree.Insert(30);
                 myTree.Insert(18);
+                myTree.Insert(17);
                 myTree.Insert(22);
                 myTree.Insert(32);
 
@@ -303,11 +303,11 @@ namespace BinarySearchTree
                 //myTree.Search(23);
                 //myTree.Search(25);
                 //myTree.Search(10);
-                myTree.Remove(30);
-                myTree.Remove(10);
-                //myTree.Remove(15); 
-                //myTree.Remove(35);
-                myTree.InOrderTreversal();
+                //myTree.Remove(30);
+                //myTree.Remove(10);
+                ////myTree.Remove(15); 
+                ////myTree.Remove(35);
+                //myTree.InOrderTreversal();
 
 
             }
