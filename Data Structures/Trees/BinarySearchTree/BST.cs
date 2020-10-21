@@ -297,7 +297,7 @@ namespace BinarySearchTree
 
                 myTree.InOrderTreversal();
                 //myTree.PreOrderTreversal();
-                //myTree.PostOrderTreversal();
+                myTree.PostOrderTreversal();
 
 
                 //myTree.Search(23);
