@@ -218,7 +218,7 @@ namespace AVLTree
         }
         public void RightRotate(Node CriticalNode)
         {
-            Console.WriteLine("Right Rotation");
+            //Console.WriteLine("Right Rotation");
             Node newCritical = new Node(CriticalNode.data);
             CriticalNode.data = CriticalNode.left.data;
             newCritical.left = CriticalNode.left.right;
@@ -235,7 +235,7 @@ namespace AVLTree
         }
         public void LeftRotate(Node CriticalNode)
         {
-            Console.WriteLine("Left Rotation");
+            //Console.WriteLine("Left Rotation");
 
             Node newCritical = new Node(CriticalNode.data);
             CriticalNode.data = CriticalNode.right.data;
@@ -254,7 +254,7 @@ namespace AVLTree
         }
         public void RightLeftRotate(Node CriticalNode)
         {
-            Console.WriteLine("Right Left Rotation");
+            //Console.WriteLine("Right Left Rotation");
 
             Node newCritical = new Node(CriticalNode.data);
             Node leftOfRight = new Node(CriticalNode.right.left.data);
@@ -271,7 +271,7 @@ namespace AVLTree
         }
         public void LeftRightRotate(Node CriticalNode)
         {
-            Console.WriteLine("Left Right Rotation");
+            //Console.WriteLine("Left Right Rotation");
 
             Node newCritical = new Node(CriticalNode.data);
             Node rightOfLeft = new Node(CriticalNode.left.right.data);
