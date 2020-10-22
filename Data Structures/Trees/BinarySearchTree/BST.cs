@@ -173,8 +173,8 @@ namespace BinarySearchTree
                     else
                     {
                         Node successor = BringInOrderSuccessor(Current.right);
-                        Current.right.data = successor.data;
                         RemoveSearch(Current.right, successor.data);
+                        Current.right.data = successor.data;
                     }
                 }
 
@@ -282,23 +282,23 @@ namespace BinarySearchTree
             static void Main(string[] args)
             {
                 BinarySearchTree myTree = new BinarySearchTree();
-                myTree.Insert(20);
-                myTree.Insert(10);
-                myTree.Insert(35);
-                myTree.Insert(2);
-                myTree.Insert(5);
-                myTree.Insert(15);
-                myTree.Insert(25);
                 myTree.Insert(18);
-                myTree.Insert(17);
+                myTree.Insert(8);
                 myTree.Insert(22);
-                myTree.Insert(32);
+                myTree.Insert(6);
+                myTree.Insert(9);
+                myTree.Insert(21);
+                myTree.Insert(50);
+                myTree.Insert(20);
+                myTree.Insert(43);
+                myTree.Insert(63);
 
 
-                myTree.InOrderTreversal();
-                //myTree.PreOrderTreversal();
-                myTree.PostOrderTreversal();
-
+                //myTree.InOrderTreversal();
+                myTree.PreOrderTreversal();
+                //myTree.PostOrderTreversal();
+                myTree.Remove(22);
+                myTree.PreOrderTreversal();
 
                 //myTree.Search(23);
                 //myTree.Search(25);
