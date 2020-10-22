@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 
 namespace AVLTree
 {
@@ -7,10 +8,15 @@ namespace AVLTree
     {
         public int data, height = 0;
         public Node left, right;
+        public Node(int i)
+        {
+            data = i;
+        }
     }
     public class AVLTree
     {
         public Node root;
+        Stack<Node> StacksPermanent = new Stack<Node>();
         public void DisplayNode(Node myNode)
         {
             Console.Write(myNode.data + "  ");
@@ -76,23 +82,43 @@ namespace AVLTree
             }
             else
             {
-                Console.WriteLine("PreOrder Treversal");
+                //Console.WriteLine("PreOrder Treversal");
                 PreOrderTreversalRecur(root);
                 Console.WriteLine("\n");
 
             }
         }
-        //Stack<Node> StackToBalance = new Stack<Node>();
-        Stack<Node> StacksPermanent = new Stack<Node>();
-        public void Insert(int i) //we need node instead of data in order to increase height of node
+        private void PostOrderTreversalRecur(Node Current)
         {
-            Node myNode = new Node();
-            myNode.data = i;
+            if (Current != null)
+            {
+                PostOrderTreversalRecur(Current.left);
+                PostOrderTreversalRecur(Current.right);
+                DisplayNode(Current);
+            }
+        }
+        public void PostOrderTreversal()
+        {
+            if (root == null)
+            {
+                Console.WriteLine("The Tree is Empty");
+            }
+            else
+            {
+                Console.WriteLine("PostOrder Treversal");
+                PostOrderTreversalRecur(root);
+                Console.WriteLine("\n");
+
+            }
+        }
+        public void Insert(int i)
+        {
+            Node myNode = new Node(i);
             if (root == null)
             {
                 root = myNode;
                 //StackToBalance.Push(myNode);
-                StacksPermanent.Push(myNode);
+                //StacksPermanent.Push(myNode);
             }
             else
             {
@@ -108,7 +134,7 @@ namespace AVLTree
                         {
                             parent.left = myNode;
                             //StackToBalance.Push(myNode);
-                            StacksPermanent.Push(myNode);
+                            //StacksPermanent.Push(myNode);
                             break;
                         }
                     }
@@ -119,36 +145,41 @@ namespace AVLTree
                         {
                             parent.right = myNode;
                             //StackToBalance.Push(myNode);
-                            StacksPermanent.Push(myNode);
+                            //StacksPermanent.Push(myNode);
                             break;
                         }
                     }
                 }
+                StacksPermanent = new Stack<Node>();
+                PostOrderTreversalStacking(root);
                 if (StacksPermanent.Count >= 3)
                 {
                     AssignHeightsAndBalance(myNode);
                 }
             }// end of insertion
-
+            //post order treversal stacking should be done
         }
-        //public static Stack<Node> Clone<T>(this Stack<Node> original)
-        //{
-        //    var arr = new Node[original.Count];
-        //    original.CopyTo(arr, 0);
-        //    Array.Reverse(arr);
-        //    return new Stack<Node>(arr);
-        //}
+        private void PostOrderTreversalStacking(Node Current)
+        {
+            if (Current != null)
+            {
+                PostOrderTreversalStacking(Current.left);
+                PostOrderTreversalStacking(Current.right);
+                StacksPermanent.Push(Current);
+            }
+        }
         public void AssignHeightsAndBalance(Node PrevAddedNode)
         {
             //Stack<Node> temp = myStack;
             //Managing Height with Stacks
-            Queue<Node> StackToBalance = new Queue<Node>(StacksPermanent);
+            Stack<Node> StackToBalance = new Stack<Node>(StacksPermanent);
             while (StackToBalance.Count != 0)
             {
                 int temp = StackToBalance.Peek().data;
-                Node Current = StackToBalance.Dequeue();
+                Node Current = StackToBalance.Pop();
+                Current.height = 0;
                 if (Current.left == null && Current.right == null)
-                { Current.height = 0; }
+                { Current.height = 1; }
                 else if (Current.left == null && Current.right != null)
                 {
                     Current.height = 1 + Current.right.height;
@@ -169,14 +200,13 @@ namespace AVLTree
                 if (balance > 1)
                 {
                     Node CriticalNode = Current;
-                    //popping order creating error, not in a child to parent direction
                     if (PrevAddedNode.data < Current.left.data)
                     {
                         RightRotate(CriticalNode);
                     }
                     else
                     {
-                        //LeftRightRotate(CriticalNode);
+                        LeftRightRotate(CriticalNode);
                     }
                 }
                 else if (balance < -1)
@@ -188,33 +218,81 @@ namespace AVLTree
                     }
                     else
                     {
-                        //RightLeftRotate(CriticalNode);
+                        RightLeftRotate(CriticalNode);
                     }
                 }
+                PreOrderTreversal();
             }
         }
-        public Node RightRotate(Node CriticalNode)
+        public void RightRotate(Node CriticalNode)
         {
-
-            Node leftChild = CriticalNode.left;
-            CriticalNode.left = leftChild.right;
-            leftChild.right = CriticalNode;
+            Console.WriteLine("Right Rotation");
+            Node newCritical = new Node(CriticalNode.data);
+            CriticalNode.data = CriticalNode.left.data;
+            newCritical.left = CriticalNode.left.right;
+            CriticalNode.left = CriticalNode.left.left;
+            Node rightChild = CriticalNode.right;
+            newCritical.right = rightChild;
+            CriticalNode.right = newCritical;
+            CriticalNode.height = Max(GetHeight(CriticalNode.left), GetHeight(CriticalNode.right));
             if (CriticalNode.data == root.data)
             {
-                root = leftChild;
+                root = CriticalNode;
             }
-            return leftChild; // new root
+            //return CriticalNode; // new root
         }
-        public Node LeftRotate(Node CriticalNode)
+        public void LeftRotate(Node CriticalNode)
         {
-            Node rightChild = CriticalNode.right;
-            CriticalNode.right = rightChild.left;
-            rightChild.left = CriticalNode;
-            if(CriticalNode.data == root.data)
+            Console.WriteLine("Left Rotation");
+
+            Node newCritical = new Node(CriticalNode.data);
+            CriticalNode.data = CriticalNode.right.data;
+            newCritical.right = CriticalNode.right.left;
+            CriticalNode.right = CriticalNode.right.right;
+            Node leftChild = CriticalNode.left;
+            newCritical.left = leftChild;
+            CriticalNode.left = newCritical;
+            CriticalNode.height = Max(GetHeight(CriticalNode.left), GetHeight(CriticalNode.right));
+
+            if (CriticalNode.data == root.data)
             {
-                root = rightChild;
+                root = CriticalNode;
             }
-            return rightChild; // new root
+            //return CriticalNode; // new root
+        }
+        public void RightLeftRotate(Node CriticalNode)
+        {
+            Console.WriteLine("Right Left Rotation");
+
+            Node newCritical = new Node(CriticalNode.data);
+            Node leftOfRight = new Node(CriticalNode.right.left.data);
+            CriticalNode.data = leftOfRight.data;
+            CriticalNode.left = newCritical;
+            CriticalNode.right.left = null;
+            CriticalNode.height = Max(GetHeight(CriticalNode.left), GetHeight(CriticalNode.right));
+            if (newCritical.data == root.data)
+            {
+                root = CriticalNode;
+            }
+            //PreOrderTreversal();
+            //return CriticalNode;
+        }
+        public void LeftRightRotate(Node CriticalNode)
+        {
+            Console.WriteLine("Left Right Rotation");
+
+            Node newCritical = new Node(CriticalNode.data);
+            Node rightOfLeft = new Node(CriticalNode.left.right.data);
+            CriticalNode.data = rightOfLeft.data;
+            CriticalNode.right = newCritical;
+            CriticalNode.left.right = null;
+            CriticalNode.height = Max(GetHeight(CriticalNode.left), GetHeight(CriticalNode.right));
+            if (newCritical.data == root.data)
+            {
+                root = CriticalNode;
+            }
+            //PreOrderTreversal();
+            //return CriticalNode;
         }
         class Program
         {
@@ -233,7 +311,7 @@ namespace AVLTree
                 myTree.Insert(50);
 
                 //myTree.AssignHeightsAndBalance();
-                Console.WriteLine(myTree.root.data);
+                //Console.WriteLine(myTree.root.data);
                 myTree.PreOrderTreversal();
             }
         }
