@@ -82,7 +82,7 @@ namespace AVLTree
             }
             else
             {
-                //Console.WriteLine("PreOrder Treversal");
+                Console.WriteLine("PreOrder Treversal");
                 PreOrderTreversalRecur(root);
                 Console.WriteLine("\n");
 
@@ -117,8 +117,6 @@ namespace AVLTree
             if (root == null)
             {
                 root = myNode;
-                //StackToBalance.Push(myNode);
-                //StacksPermanent.Push(myNode);
             }
             else
             {
@@ -133,8 +131,6 @@ namespace AVLTree
                         if (current == null)
                         {
                             parent.left = myNode;
-                            //StackToBalance.Push(myNode);
-                            //StacksPermanent.Push(myNode);
                             break;
                         }
                     }
@@ -144,8 +140,6 @@ namespace AVLTree
                         if (current == null)
                         {
                             parent.right = myNode;
-                            //StackToBalance.Push(myNode);
-                            //StacksPermanent.Push(myNode);
                             break;
                         }
                     }
@@ -221,7 +215,6 @@ namespace AVLTree
                         RightLeftRotate(CriticalNode);
                     }
                 }
-                PreOrderTreversal();
             }
         }
         public void RightRotate(Node CriticalNode)
@@ -310,7 +303,6 @@ namespace AVLTree
                 myTree.Insert(63);
                 myTree.Insert(50);
 
-                //myTree.AssignHeightsAndBalance();
                 //Console.WriteLine(myTree.root.data);
                 myTree.PreOrderTreversal();
             }
