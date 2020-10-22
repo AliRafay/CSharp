@@ -135,8 +135,8 @@ namespace BinarySearchTree
                     else //both children present
                     {
                         Node successor = BringInOrderSuccessor(Current.left);
-                        Current.left.data = successor.data;
                         RemoveSearch(Current.left, successor.data);
+                        Current.left.data = successor.data;
                     }
                 }
                 else if (i < Current.data)
